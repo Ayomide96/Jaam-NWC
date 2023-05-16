@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Script</title>
+</head>
+<body>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <input type="text" id="input3">
+
+    <script>
+        // Retrieve the input elements
+        var input1 = document.getElementById('input1');
+        var input2 = document.getElementById('input2');
+        var input3 = document.getElementById('input3');
+
+        // Set the desired values for the inputs
+        input1.value = "Value 1";
+        input2.value = "Value 2";
+        input3.value = "Value 3";
+
+        var numOfClicks = document.documentElement.querySelectorAll('[formcontrolid="fc_1d2c3c8e8556462fb5107b35b9785e23"] .ntx-repeating-section-repeated-section').length - 1;
+
+        for (var i = 0, j = numOfClicks; i < j; i++) {
+            document.documentElement.querySelector('[formcontrolid="fc_f7edea3c7bbc474ba19424f8e5269e62"] .btn-repeating-section-new-row').click();
+        }
+
+        var readOnlyTextShort = document.documentElement.querySelectorAll('[formcontrolid="fc_1d2c3c8e8556462fb5107b35b9785e23"] input:not([type="checkbox"])');
+
+        readOnlyTextShort.forEach(function (input) {
+            document.documentElement.querySelector(`[formcontrolid="fc_f7edea3c7bbc474ba19424f8e5269e62"] [aria-label="${input.ariaLabel}"]`).value = input.value;
+        });
+    </script>
+</body>
+</html>
